@@ -17,13 +17,18 @@ inputQuery.addEventListener('input', debounce(onInputEnter, DEBOUNCE_DELAY));
 function onInputEnter(e) {
   clearCountryList();
   searchCountry.country = e.target.value.trim();
-
+  if (!e.target.value.trim()) {
+    return;
+  }
   searchCountry.fetchCountries().then(data => createMarkup(data));
 }
 
 let markup;
 
 function createMarkup(data) {
+  if (!data) {
+    return;
+  }
   if (data.length === 1) {
     markup = data
       .map(
