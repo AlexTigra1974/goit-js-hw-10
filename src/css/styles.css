@@ -18,7 +18,12 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
-
+image {
+  border: 1px solid tomato;
+  outline-offset: 1px;
+}
 .country-list {
   list-style: none;
+}
+.country-info {
 }

@@ -4,8 +4,8 @@ export default class SearchCountry {
   constructor() {
     this.name = '';
   }
+
   fetchCountries() {
-    console.log(this);
     const url = `https://restcountries.com/v3.1/name/${this.name}?fields=name,capital,population,flags,languages`;
 
     return fetch(url)
@@ -24,7 +24,7 @@ export default class SearchCountry {
           );
           return;
         }
-        console.log(data);
+        // console.log(data);
 
         return data;
       })

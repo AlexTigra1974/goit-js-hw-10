@@ -13,13 +13,16 @@ console.log(searchCountry);
 const DEBOUNCE_DELAY = 300;
 
 inputQuery.addEventListener('input', debounce(onInputEnter, DEBOUNCE_DELAY));
+
 function onInputEnter(e) {
   clearCountryList();
   searchCountry.country = e.target.value.trim();
 
   searchCountry.fetchCountries().then(data => createMarkup(data));
 }
+
 let markup;
+
 function createMarkup(data) {
   if (data.length === 1) {
     markup = data
@@ -37,7 +40,7 @@ function createMarkup(data) {
     `
       )
       .join('');
-    info.insertAdjacentHTML('beforeend', markup);
+    info.innerHTML = markup;
   }
   if (data.length >= 2 && data.length <= 10) {
     markup = data
@@ -50,7 +53,7 @@ function createMarkup(data) {
     </li>`
       )
       .join('');
-    countryList.insertAdjacentHTML('beforeend', markup);
+    countryList.innerHTML = markup;
   }
 }
 
